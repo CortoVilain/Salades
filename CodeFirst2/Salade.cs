@@ -16,7 +16,7 @@ namespace CodeFirst2
         public string Nom { get; set; }
         [Column(TypeName = "nvarchar(max)")]
         public String Description { get; set; }
-
+        [Required]
         public virtual Fabricant Fabricant { get; set; }
 
         public virtual ICollection<Composant> Composants { get; set; }

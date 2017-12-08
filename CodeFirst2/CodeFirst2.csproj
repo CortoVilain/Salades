@@ -53,6 +53,18 @@
     <Compile Include="Migrations\201712080820490_Initialisation.Designer.cs">
       <DependentUpon>201712080820490_Initialisation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712080850018_AjoutDeBoutDeCodeManquant.cs" />
+    <Compile Include="Migrations\201712080850018_AjoutDeBoutDeCodeManquant.Designer.cs">
+      <DependentUpon>201712080850018_AjoutDeBoutDeCodeManquant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712080855201_AjoutRequiredFabricant.cs" />
+    <Compile Include="Migrations\201712080855201_AjoutRequiredFabricant.Designer.cs">
+      <DependentUpon>201712080855201_AjoutRequiredFabricant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712080901459_RequiredFabricant.cs" />
+    <Compile Include="Migrations\201712080901459_RequiredFabricant.Designer.cs">
+      <DependentUpon>201712080901459_RequiredFabricant.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Salade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -65,6 +77,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201712080820490_Initialisation.resx">
       <DependentUpon>201712080820490_Initialisation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712080850018_AjoutDeBoutDeCodeManquant.resx">
+      <DependentUpon>201712080850018_AjoutDeBoutDeCodeManquant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712080855201_AjoutRequiredFabricant.resx">
+      <DependentUpon>201712080855201_AjoutRequiredFabricant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712080901459_RequiredFabricant.resx">
+      <DependentUpon>201712080901459_RequiredFabricant.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -194,11 +194,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Salades\Create.cshtml" />
-    <Content Include="Views\Salades\Delete.cshtml" />
-    <Content Include="Views\Salades\Details.cshtml" />
-    <Content Include="Views\Salades\Edit.cshtml" />
-    <Content Include="Views\Salades\Index.cshtml" />
     <Content Include="Views\Composants\Create.cshtml" />
     <Content Include="Views\Composants\Delete.cshtml" />
     <Content Include="Views\Composants\Details.cshtml" />
@@ -209,6 +204,11 @@
     <Content Include="Views\Fabricants\Details.cshtml" />
     <Content Include="Views\Fabricants\Edit.cshtml" />
     <Content Include="Views\Fabricants\Index.cshtml" />
+    <Content Include="Views\Salades\Create.cshtml" />
+    <Content Include="Views\Salades\Delete.cshtml" />
+    <Content Include="Views\Salades\Details.cshtml" />
+    <Content Include="Views\Salades\Edit.cshtml" />
+    <Content Include="Views\Salades\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
