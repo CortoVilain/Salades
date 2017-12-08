@@ -91,15 +91,42 @@ namespace WebSalade.Controllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Nom,Description")] Salade salade)
+        public ActionResult Edit(SaladeViewModel saladeViewModel)
         {
+
+            if (saladeViewModel == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
             if (ModelState.IsValid)
             {
-                db.Entry(salade).State = EntityState.Modified;
-                db.SaveChanges();
+                var saladeToUpdate = db.Salades
+                    .Include(i => i.Composants).First(i => i.ID == saladeViewModel.Salade.ID);
+
+                if (TryUpdateModel(saladeToUpdate, "Salade", new string[] { "Nom", "Description" }))
+                {
+                    var newComposant = db.Composants.Where(
+                        m => saladeViewModel.SelectedComposant.Contains(m.ID)).ToList();
+
+                    var updatedComposant = new HashSet<int>(saladeViewModel.SelectedComposant);
+                    foreach (Composant composant in db.Composants)
+                    {
+                        if (!updatedComposant.Contains(composant.ID))
+                        {
+                            saladeToUpdate.Composants.Remove(composant);
+                        }
+                        else
+                        {
+                            saladeToUpdate.Composants.Add(composant);
+                        }
+                    }
+
+                    db.Entry(saladeToUpdate).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                }
+
                 return RedirectToAction("Index");
             }
-            return View(salade);
+            
+            return View(saladeViewModel.Salade);
         }
 
         // GET: Salades/Delete/5
