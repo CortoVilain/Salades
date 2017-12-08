@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using CodeFirst2;
+using WebSalade.ViewModel;
 
 namespace WebSalade.Controllers
 {
@@ -65,12 +66,24 @@ namespace WebSalade.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            var saladeViewModel = new SaladeViewModel
+            {
+                Salade = db.Salades.Include(i => i.Composants).First(i => i.ID == id)
+            };
+            if (saladeViewModel == null)
+            {
+                return HttpNotFound();
+            }
+            var allComposant = db.Composants.ToList();
+            saladeViewModel.AllComposant = allComposant.Select(o => new SelectListItem { Text = o.Nom, Value = o.ID.ToString() });
             Salade salade = db.Salades.Find(id);
             if (salade == null)
             {
                 return HttpNotFound();
             }
-            return View(salade);
+
+
+            return View(saladeViewModel);
         }
 
         // POST: Salades/Edit/5
